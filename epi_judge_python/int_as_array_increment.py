@@ -5,7 +5,22 @@ from test_framework import generic_test
 
 def plus_one(A: List[int]) -> List[int]:
     # TODO - you fill in here.
-    return []
+    A[-1] += 1 #-1 indexes the last element of the sequence 
+    for index in reversed(range(1,len(A))):        
+        if A[index] != 10: # no more opperations needed
+            break
+        else:
+            A[index] = 0
+            A[index - 1] += 1
+    if A[0] == 10: #there is a carry
+        A[0] = 1
+        A.append(0)
+
+
+
+    for num in A:
+        print(num)
+    return A
 
 
 if __name__ == '__main__':
